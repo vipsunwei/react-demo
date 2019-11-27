@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Login.css'
-// import LoginPage from './LoginPage.js'
+import LoginPage from './LoginPage.js'
 
 class LoginControl extends Component {
   constructor() {
@@ -9,17 +9,15 @@ class LoginControl extends Component {
       isShowLoginPage: false
     }
   }
-  LoginHandler () {
-    console.log(this)
-    // isShowLoginPage = true
-  }
   render() {
+    const { isShowLoginPage } = this.state
     return (
       <div className="Login">
         <header className="Login-header">
-          <a className="Login-btn" onClick={this.LoginHandler}>登录</a>|
-          <a className="register-btn">注册</a>
+          <button className="Login-btn" onClick={() => !isShowLoginPage && this.setState({ isShowLoginPage: true })}>登录</button>|
+          <button className="register-btn">注册</button>
         </header>
+        <LoginPage isShowLoginPage={isShowLoginPage} />
       </div>
     )
   }
