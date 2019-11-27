@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Login.css'
-import LoginPage from './LoginPage.js'
+import LoginPage from './LoginPage'
+
 
 class LoginControl extends Component {
   constructor() {
