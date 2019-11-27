@@ -1,17 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class LoginPage extends Component {
-
-  render() {
-    const { isShowLoginPage } = this.props
-    if (isShowLoginPage) {
-      return (
-        <div>登录窗口</div>
-      )
-    } else {
-      return null
-    }
-  }
+export default function LoginPage(props) {
+  const { isShowLoginPage } = props
+  return isShowLoginPage ? (
+    <>
+      <div>登录窗口</div>
+    </>
+  ) : null
 }
-
-export default LoginPage

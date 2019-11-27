@@ -1,27 +1,21 @@
-import React, { Component } from 'react'
-import './Login.css'
-import LoginPage from './LoginPage'
+import "./Login.css";
+import LoginPage from "./LoginPage";
+import React, { useState } from "react";
 
-
-class LoginControl extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isShowLoginPage: false
-    }
-  }
-  render() {
-    const { isShowLoginPage } = this.state
-    return (
-      <div className="Login">
-        <header className="Login-header">
-          <button className="Login-btn" onClick={() => !isShowLoginPage && this.setState({ isShowLoginPage: true })}>登录</button>|
-          <button className="register-btn">注册</button>
-        </header>
-        <LoginPage isShowLoginPage={isShowLoginPage} />
-      </div>
-    )
-  }
+export default function LoginControl() {
+  const [isShowLoginPage, setIsShowLoginPage] = useState(false);
+  return (
+    <>
+      <header className="Login-header">
+        <button
+          className="Login-btn"
+          onClick={() => !isShowLoginPage && setIsShowLoginPage(true)}
+        >
+          登录
+        </button>
+        |<button className="register-btn">注册</button>
+      </header>
+      <LoginPage isShowLoginPage={isShowLoginPage} />
+    </>
+  );
 }
-
-export default LoginControl
